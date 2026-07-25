@@ -57,7 +57,7 @@ def generate_mock_products(query: str, platform: str, count: int = 4) -> list[di
             {
                 "id": f"{platform}-{query.lower().replace(' ', '-')}-{i}",
                 "platform": platform,
-                "title": f"{query.title()} ({rng.choice(['128GB', '256GB', '512GB'])}, {rng.choice(['Black', 'Blue', 'Silver', 'Graphite'])})",
+                "title": f"{query.title()}",
                 "image": PLACEHOLDER_IMAGE,
                 "seller": f"{rng.choice(sellers)} ({platform.title()})",
                 "currentPrice": price,
