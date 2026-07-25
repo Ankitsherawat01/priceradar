@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-50 text-ink-900 dark:bg-ink-950 dark:text-ink-50 transition-colors duration-300;
+}
+
+::selection {
+  @apply bg-marigold-500/30;
+}
+
+/* Thin, styled scrollbars for horizontal product rails */
+.rail::-webkit-scrollbar {
+  height: 8px;
+}
+.rail::-webkit-scrollbar-track {
+  background: transparent;
+}
+.rail::-webkit-scrollbar-thumb {
+  background: rgba(255, 122, 26, 0.35);
+  border-radius: 999px;
+}
+
+/* Glass panel utility */
+.glass {
+  @apply bg-white/70 dark:bg-ink-900/60 backdrop-blur-xl border border-white/40 dark:border-white/5;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(120, 120, 120, 0.08) 25%,
+    rgba(120, 120, 120, 0.18) 37%,
+    rgba(120, 120, 120, 0.08) 63%
+  );
+  background-size: 400px 100%;
+  @apply animate-shimmer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

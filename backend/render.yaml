@@ -1,0 +1,25 @@
+# Render "Blueprint" — lets you deploy this backend by pointing Render
+# at your GitHub repo and clicking "New Blueprint Instance" instead of
+# configuring every field by hand. See README "Render deployment" section.
+services:
+  - type: web
+    name: priceradar-backend
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && playwright install --with-deps chromium"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB_NAME
+        value: ecomcompare
+      - key: CORS_ORIGINS
+        sync: false
+      - key: SCRAPER_MODE
+        value: mock
+      - key: AMAZON_AFFILIATE_TAG
+        sync: false
+      - key: FLIPKART_AFFILIATE_ID
+        sync: false
+      - key: CACHE_TTL_SECONDS
+        value: "1800"
